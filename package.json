@@ -1,0 +1,25 @@
+{
+  "name": "leaguefybackend",
+  "version": "1.0.0",
+  "description": "Back-end application for league of legends stats",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesamtimmar1/leaguefyBackend.git"
+  },
+  "author": "Mesam Timmar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mesamtimmar1/leaguefyBackend/issues"
+  },
+  "homepage": "https://github.com/mesamtimmar1/leaguefyBackend#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
