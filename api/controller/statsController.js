@@ -2,7 +2,7 @@ const leagueJs = require('../../lib/leagueJs');
 
 process.env.LEAGUE_API_PLATFORM_ID = 'na';
 const leaguePlatformId = process.env.LEAGUE_API_PLATFORM_ID;
-const numOfMatchesRequired = 10;
+const numOfMatchesRequired = 5;
 
 const getLeagueStatsBySummonerName = (req, res) => {
     const summonerName = req.params.summonerName;
@@ -15,7 +15,15 @@ const getLeagueStatsBySummonerName = (req, res) => {
             leagueJs.Match
             .gettingListByAccount(summonerData.accountId, leaguePlatformId, options=matchListOptions)
             .then(matchesData => {
-                res.json(matchesData);
+                let promiseList = [];
+                matchesData.matches.forEach(match => {
+                    promiseList.push(leagueJs.Match.gettingById(match.gameId, leaguePlatformId));
+                })
+                Promise.all(promiseList)
+                .then(matchesDetail => {
+                    res.json(matchesDetail);
+                })
+                .catch(err => res.json({error: 'Erorr with some match data'}));
             });
         })
         .catch(err => res.send(404));
