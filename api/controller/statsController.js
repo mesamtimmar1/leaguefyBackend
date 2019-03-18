@@ -27,10 +27,10 @@ const getLeagueStatsBySummonerName = (req, res) => {
                     console.log('promise resolved');
                     res.json(extractedMatchesListData);
                 })
-                .catch(err => console.log(err));
+                .catch(err => res.json([]));
             });
         })
-        .catch(err => res.send(err));
+        .catch(err => res.json([]));
 }
 
 extractMatchData = (matchDetail, summonerAccountId) => {
