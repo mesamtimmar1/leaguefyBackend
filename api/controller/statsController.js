@@ -2,7 +2,8 @@ const leagueJs = require('../../lib/leagueJs');
 
 const leaguePlatformId = process.env.LEAGUE_API_PLATFORM_ID;
 const numOfMatchesRequired = 3;
-
+console.log("PLID: ", process.env.LEAGUE_API_PLATFORM_ID);
+console.log("League Key: ", process.env.LEAGUE_API_KEY);
 const getLeagueStatsBySummonerName = (req, res) => {
     const summonerName = req.params.summonerName;
     leagueJs.Summoner
