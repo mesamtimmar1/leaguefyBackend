@@ -1,6 +1,5 @@
 const leagueJs = require('../../lib/leagueJs');
 
-process.env.LEAGUE_API_PLATFORM_ID = 'na';
 const leaguePlatformId = process.env.LEAGUE_API_PLATFORM_ID;
 const numOfMatchesRequired = 3;
 
